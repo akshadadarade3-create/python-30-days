@@ -1,0 +1,66 @@
+questions = [
+    ("What does AI stand for?", "Artificial Intelligence"),
+    ("Addition of 2+2 ?", "4"),
+    ("How many days are in week?", "7"),
+    ("How many months are in a year?", "12"),
+    ("How many hours are in a day?", "24"),
+    ("Which operator is used for equality comparison?", "=="),
+    ("What function is used to get input in python from the user?", "input"),
+    ("How many minutes are in hour?", "60"),
+    ("What does HTML stand for?", "hypertext markup language"),
+    ("Which language is used to style web pages?", "css")
+]
+def play_quiz():
+    score = 0
+
+    print("\n***** Welcome to QUIZ *****")
+
+    for question, correct_answer in questions:
+        print("\n" + question)
+        answer = input("Your answer: ")
+
+        if answer.strip().lower() == correct_answer.lower():
+            print("Correct!")
+            score += 1
+        else:
+            print("Wrong!")
+            print("Correct answer:", correct_answer)
+
+    total = len(questions)
+    percentage = (score / total) * 100
+
+    print("\n***** QUIZ RESULT ***** ")
+    print("Score:", score, "/", total)
+    print("Percentage:", percentage, "%")
+
+    if percentage >= 90:
+        print("Excellent!")
+    elif percentage >= 70:
+        print("Very good!")
+    elif percentage >= 50:
+        print("Good effort!")
+    else:
+        print("Keep practising! ")
+
+
+
+while True:
+    play_quiz()
+
+    again = input("\nPlay again? (y/n): ")
+
+    if again.strip().lower() != "y":
+        print("Thanks for playing! 👋")
+        break  
+
+
+
+
+
+
+
+
+
+
+
+
