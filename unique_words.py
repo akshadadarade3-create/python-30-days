@@ -1,0 +1,5 @@
+para = input("Enter a Paragraph:")
+words = para.lower().split()
+unique_words = set(words)
+sorted_words = sorted(unique_words)
+print("unique words:",unique_words)
