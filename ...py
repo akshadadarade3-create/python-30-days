@@ -1,3 +1,4 @@
+# Add full error handling to your Stage 2 Student Records Manager.
 students = []
 class DuplicateRollNumberError(Exception):
     pass
