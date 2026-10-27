@@ -20,6 +20,10 @@ A console-based quiz that asks questions, checks answers, calculates the score, 
 
 A menu-driven Python application for managing student records, including marks, searching, updating, deleting, and class statistics.
 
+3. Personal Expense tracker
+
+expense tracker that remembers its data between runs.
+
 📚 Learning Progress
 
 I am progressing through the course topic by topic.
