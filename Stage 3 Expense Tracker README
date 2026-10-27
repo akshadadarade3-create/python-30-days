@@ -1,0 +1,48 @@
+REQUIREMENTS 
+• Add an expense: amount, category, description and date 
+• Save all expenses to a JSON file, loaded automatically at start-up 
+• View all expenses in a table; show totals by category 
+• Filter expenses by month; delete an expense 
+• Export a report to CSV 
+• Organise functions across at least two modules 
+• Invalid amounts and dates must never crash the progra"""
+from storage import load_expenses, export_csv
+from expense_manager import (add_expense,view_expenses,show_category_totals,filter_by_month,delete_expense)
+def main():
+    """Run the expense tracker."""
+    expenses = load_expenses()
+    print("Welcome to the Expense Tracker!")
+    while True:
+        print("\n===== EXPENSE TRACKER =====""\n1. Add Expense""\n2. View All Expenses""\n3. Show Category Totals""\n4.Filter Expenses by Month""\n5. Delete Expense""\n6. Export Report to CSV""\n7. Exit")
+        choice = input("Enter your choice: ").strip()
+        if choice == "1":
+            amount = input("Enter amount: ")
+            category = input("Enter category: ")
+            description = input("Enter description: ")
+            date = input("Enter date (YYYY-MM-DD): ")
+            add_expense(expenses, amount, category, description, date)
+        elif choice == "2":
+            view_expenses(expenses)
+        elif choice == "3":
+            show_category_totals(expenses)
+        elif choice == "4":
+            month = input("Enter month (YYYY-MM): ")
+            filter_by_month(expenses, month)
+        elif choice == "5":
+            expense_id = input("Enter expense ID to delete: ")
+            delete_expense(expenses, expense_id)
+        elif choice == "6":
+            filename = input("Enter CSV filename (default: expense_report.csv): ").strip()
+            if not filename:
+                filename = "expense_report.csv"
+            if not filename.lower().endswith(".csv"):
+                filename += ".csv"
+            if export_csv(expenses, filename):
+                print(f"Report exported to {filename}")
+        elif choice == "7":
+            print("Expenses saved.")
+            break
+        else:
+            print("Invalid choice.")
+if __name__ == "__main__":
+    main()
